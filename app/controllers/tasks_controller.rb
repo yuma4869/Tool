@@ -2,7 +2,7 @@ class TasksController < ApplicationController
 
   include SessionsHelper
 
-  before_action :current_user,only: [:index,:user_all_tasks,:random_all_tasks,:create]
+  before_action :current_user,only: [:index,:user_all_tasks,:random_all_tasks,:create,:delete]
   def index
     @random_tasks = Task.where("DATE(created_at) = ?", Date.today).order("RANDOM()")
     @message = "他の日のタスクを見る"
