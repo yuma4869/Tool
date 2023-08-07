@@ -280,10 +280,11 @@ a.btn-border:hover:after {
             <a href="/logout"><i class="fas fa-power-off" style="font-size:3em;"></i><span>ログアウト</span></a>
         </div>
         <div class="flex">
-            <h3 style="padding-left:10px;"><%= @current_user.name %>のタスク<%= session[:user_id] %></h3>
+            <h3 style="padding-left:10px;"><%= @current_user.name %>のタスク</h3>
+            <p>ドラック＆ドロップでタスクを入れ替えられます</p>
             <a href="/tasks/<%= @current_user.name %>/total" class="btn btn-flat"><span><%= @current_user.name %>の統計</span></a>
         </div>
-        <% #セッションIDランダム＆ハッシュとかする %>
+
     </div>
     <%= javascript_tag do %>
     var current_user = '<%= @current_user.name %>';
