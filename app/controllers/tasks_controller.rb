@@ -78,7 +78,7 @@ class TasksController < ApplicationController
         redirect_to "/tasks"
 
       rescue ActiveRecord::RecordInvalid => e
-        flash[:error] = "タイトルと名前は英数字で特殊文字列を使わず入力してください。時間は半角数字で入力してください。すべての項目は必須です"
+        flash[:error] = "タイトルと内容は日本語または英数字で特殊文字列を使わず入力してください。時間は半角数字で入力してください。すべての項目は必須です"
         logger.error "タスクの保存に失敗しました。エラーメッセージ：#{e.message}"
         redirect_to "/tasks"
       end
