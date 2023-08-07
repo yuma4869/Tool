@@ -1,0 +1,3 @@
+class OtherToolsController < ApplicationController
+
+end

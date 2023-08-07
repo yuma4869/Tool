@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="<%= yield(:description) %>">
+    <meta name="keywords" content="<%= yield(:keywords) %>">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <%= favicon_link_tag('4869_favicon.png') %>
+  </head>
+
+  <body>
+  
+    <!-- Header Start -->
+    <header class="site-header" style="position:fixed;width:100%;z-index:100;">
+      <div class="wrapper site-header__wrapper">
+        <div class="site-header__start">
+          <a href="/" class="brand"><%= image_tag '4869_favicon.png',alt: 'yuma4869_favicon',class: 'favicon' %></a>
+        </div>
+        <div class="site-header__end">
+          <nav class="nav">
+            <div class="nav__toggle" aria-expanded="false" type="button">
+               <div class="openbtn7"><div class="openbtn-area"><span></span><span></span><span></span></div></div>
+                <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  crossorigin="anonymous"></script>
+                <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/5-2-7/js/5-2-7.js"></script>
+            </div>
+            <ul class="nav__wrapper">
+            <% if request.path == '/' %>
+              <li class="nav__item active">
+            <% else %>
+              <li class="nav__item">
+            <% end %>
+                <a href="/">
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="24px"
+                    height="24px"
+                    x="0"
+                    y="0"
+                    preserveAspectRatio="xMinYMin meet"
+                    class="nav-icon"
+                    focusable="false"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22,9.45,12.85,3.26A1.52,1.52,0,0,0,12,3a1.49,1.49,0,0,0-.84.26L2,9.45,3.06,11,4,10.37V20a1,1,0,0,0,1,1h5V16h4v5h5a1,1,0,0,0,1-1V10.37l.94.63Z"
+                      class="active-item"
+                      style="fill-opacity: 1"
+                    ></path>
+                    <path
+                      d="M22,9.45L12.85,3.26a1.5,1.5,0,0,0-1.69,0L2,9.45,3.06,11,4,10.37V20a1,1,0,0,0,1,1h6V16h2v5h6a1,1,0,0,0,1-1V10.37L20.94,11ZM18,19H15V15a1,1,0,0,0-1-1H10a1,1,0,0,0-1,1v4H6V8.89l6-4,6,4V19Z"
+                      class="inactive-item"
+                      style="fill: currentColor"
+                    ></path>
+                  </svg>
+                  <span>Tools</span>
+                </a>
+              </li>
+              <% if request.path == '/about' %>
+                <li class="nav__item active">
+              <% else %>
+                <li class="nav__item">
+              <% end %>
+                <a href="/about">
+                <svg version="1.1" id="_x31_0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 24px; height: 24px; opacity: 1;" xml:space="preserve">
+                <style type="text/css">
+                  .st0{fill:#374149;}
+                </style>
+                <g>
+                  <polygon class="st0" points="332.691,0 179.313,0 79.539,99.77 79.539,202.016 79.539,202.641 79.539,202.641 79.539,202.805 
+                    184.883,202.805 184.883,105.477 184.883,105.336 326.848,105.336 327.122,105.336 327.122,197.234 229.656,294.699 
+                    229.656,384.289 334.996,384.289 334.996,297.961 432.461,200.496 432.461,99.77 	" style="fill: rgb(0, 0, 0);"></polygon>
+                  <polygon class="st0" points="334.996,415.782 334.996,415.617 229.656,415.617 229.656,512 334.996,512 334.996,416.07 
+                    335,415.782 	" style="fill: rgb(0, 0, 0);"></polygon>
+                </g>
+                </svg>
+                  <span>yuma4869.comとは？</span>
+                </a>
+              </li>
+              <% if request.path == '/me' %>
+                <li class="nav__item active">
+              <% else %>
+                <li class="nav__item">
+              <% end %>
+                <a href="/me">
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="24px"
+                    height="24px"
+                    x="0"
+                    y="0"
+                    preserveAspectRatio="xMinYMin meet"
+                    class="nav-icon"
+                    focusable="false"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16,17.85V20a1,1,0,0,1-1,1H1a1,1,0,0,1-1-1V17.85a4,4,0,0,1,2.55-3.73l2.95-1.2V11.71l-0.73-1.3A6,6,0,0,1,4,7.47V6a4,4,0,0,1,4.39-4A4.12,4.12,0,0,1,12,6.21V7.47a6,6,0,0,1-.77,2.94l-0.73,1.3v1.21l2.95,1.2A4,4,0,0,1,16,17.85Zm4.75-3.65L19,13.53v-1a6,6,0,0,0,1-3.31V9a3,3,0,0,0-6,0V9.18a6,6,0,0,0,.61,2.58A3.61,3.61,0,0,0,16,13a3.62,3.62,0,0,1,2,3.24V21h4a1,1,0,0,0,1-1V17.47A3.5,3.5,0,0,0,20.75,14.2Z"
+                      class="inactive-item"
+                      style="fill-opacity: 1"
+                    ></path>
+                    <path
+                      d="M20.74,14.2L19,13.54V12.86l0.25-.41A5,5,0,0,0,20,9.82V9a3,3,0,0,0-6,0V9.82a5,5,0,0,0,.75,2.63L15,12.86v0.68l-1,.37a4,4,0,0,0-.58-0.28l-2.45-1V10.83A8,8,0,0,0,12,7V6A4,4,0,0,0,4,6V7a8,8,0,0,0,1,3.86v1.84l-2.45,1A4,4,0,0,0,0,17.35V20a1,1,0,0,0,1,1H22a1,1,0,0,0,1-1V17.47A3.5,3.5,0,0,0,20.74,14.2ZM16,8.75a1,1,0,0,1,2,0v1.44a3,3,0,0,1-.38,1.46l-0.33.6a0.25,0.25,0,0,1-.22.13H16.93a0.25,0.25,0,0,1-.22-0.13l-0.33-.6A3,3,0,0,1,16,10.19V8.75ZM6,5.85a2,2,0,0,1,4,0V7.28a6,6,0,0,1-.71,2.83L9,10.72a1,1,0,0,1-.88.53H7.92A1,1,0,0,1,7,10.72l-0.33-.61A6,6,0,0,1,6,7.28V5.85ZM14,19H2V17.25a2,2,0,0,1,1.26-1.86L7,13.92v-1a3,3,0,0,0,1,.18H8a3,3,0,0,0,1-.18v1l3.72,1.42A2,2,0,0,1,14,17.21V19Zm7,0H16V17.35a4,4,0,0,0-.55-2l1.05-.4V14.07a2,2,0,0,0,.4.05h0.2a2,2,0,0,0,.4-0.05v0.88l2.53,1a1.5,1.5,0,0,1,1,1.4V19Z"
+                      class="active-item"
+                      style="fill: currentColor"
+                    ></path>
+                  </svg>
+                  <span>お前誰？</span>
+                </a>
+                </li>
+              <li class="nav__item">
+              <a href="https://forms.gle/bBBU7JRkfQpd9h6Y9">
+              <svg  viewBox="0 0 32 32"
+                    width="24px"
+                    height="24px"
+                    x="0"
+                    y="0"
+                    preserveAspectRatio="xMinYMin meet"
+                    class="nav-icon"
+                    focusable="false" 
+                    xmlns="http://www.w3.org/2000/svg">
+                <!-- メールアイコン -->
+              <title/><g id="mail"><path d="M29,6H3L2.92,6a.78.78,0,0,0-.21,0l-.17.07a.65.65,0,0,0-.15.1.67.67,0,0,0-.15.14l-.06.06a.36.36,0,0,0,0,.09,1.08,1.08,0,0,0-.08.19A1.29,1.29,0,0,0,2,6.9S2,7,2,7V25a1,1,0,0,0,1,1H29a1,1,0,0,0,1-1V7A1,1,0,0,0,29,6ZM16,14.81,6.2,8H27.09ZM4,24V8.91l11.43,7.91,0,0a1.51,1.51,0,0,0,.18.09l.08,0A1.09,1.09,0,0,0,16,17h0a1,1,0,0,0,.41-.1l.07,0,0,0L28,9.79V24Z"/></g>
+              </svg>
+
+              <span>問い合わせ</span>
+              </a>
+              </li>
+              <% if request.path == '/security' %>
+                <li class="nav__item active">
+              <% else %>
+                <li class="nav__item">
+              <% end %>
+              <a href="/security">
+              <svg version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="width: 32px; height: 32px; opacity: 1;" class="nav-icon" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#4B4B4B;}
+</style>
+<g>
+	<path class="st0" d="M435.209,96.685l-19.627-1.077c-53.229-2.957-99.37-23.39-126.611-56.099L255.999,0l-32.98,39.509c-27.24,32.709-73.391,53.142-126.611,56.099l-40.497,2.24v187.094c0,26.61,8.059,51.698,20.878,74.642c44.26,79.84,144.978,134.496,159.311,142.02L255.999,512l19.891-10.396c18.454-9.678,180.198-97.664,180.198-216.662V97.848
+		L435.209,96.685z M98.737,261.106c0-46.326,0-122.674,0-122.674c64.333-3.579,121.509-28.578,157.263-71.5v194.174h157.247v23.836
+		c0,96.501-157.247,178.668-157.247,178.668V261.106H98.737z" style="fill: rgb(75, 75, 75);"></path>
+</g>
+</svg>
+              <span>セキュリティ</span>
+              </a>
+              </li>
+              <li class="nav__item">
+              <a href="https://yumasblog.net">
+                <%= image_tag 'yumablog_favicon.png',alt: 'yuma4869_favicon',class: 'yumablog_favicon' %>
+              </a>
+              </li>
+        </div>
+      </div>
+      <script>
+      var navWrapper = document.querySelector(".nav__wrapper");
+        $(".openbtn7").click(function () {
+            $(this).toggleClass('active');
+              if (navWrapper.classList.contains("active")) {
+    this.setAttribute("aria-expanded", "false");
+    this.setAttribute("aria-label", "menu");
+    navWrapper.classList.remove("active");
+  } else {
+    navWrapper.classList.add("active");
+    this.setAttribute("aria-label", "close menu");
+    this.setAttribute("aria-expanded", "true");
+  }
+        });
+      </script>
+    </header>
+    <noscript>
+    <p>あなたのブラウザではjavascriptが使えません。</p>
+    <p>サービスが正常に機能しない場合があります。</p>
+    </noscript>
+    <!-- Header End -->
+    <% if flash[:notice] %>
+      <div class="noticebox">
+        <div class="notice"><%= flash[:notice] %></div>
+      </div>
+    <% end %>
+    <%= yield %>
+    <footer>
+      <a href="<%= yield(:github) %>" style="color:green">ソースコード</a> have a nice math © 2023 yuma4869
+    </footer>
+  </body>
+</html>

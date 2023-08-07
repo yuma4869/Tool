@@ -1,0 +1,19 @@
+current directory: D:/Pragram/Ruby/tool/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+D:/Pragram/Ruby/Ruby32-x64/bin/ruby.exe extconf.rb
+creating Makefile
+
+current directory: D:/Pragram/Ruby/tool/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20230705-39400-oi96xx sitelibdir\=./.gem.20230705-39400-oi96xx clean
+
+current directory: D:/Pragram/Ruby/tool/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20230705-39400-oi96xx sitelibdir\=./.gem.20230705-39400-oi96xx
+generating bootsnap-x64-mingw-ucrt.def
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.so
+
+current directory: D:/Pragram/Ruby/tool/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20230705-39400-oi96xx sitelibdir\=./.gem.20230705-39400-oi96xx install
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20230705-39400-oi96xx/bootsnap
+
+current directory: D:/Pragram/Ruby/tool/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20230705-39400-oi96xx sitelibdir\=./.gem.20230705-39400-oi96xx clean

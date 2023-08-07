@@ -1,0 +1,72 @@
+<head>
+    <title>ハッカー・エンジニア用なぞとき２｜yuma4869</title>
+</head>
+<style>
+    body {
+        background-color:black;
+        color:white;
+    }
+    .login {
+        text-align:center;
+        background-color:green;
+        padding:5em;
+        margin:5em;
+    }
+    input {
+        padding:15px;
+        border-radius:10px;
+    }
+</style>
+<body>
+    <div class="login">
+    <h1>こっから先は管理者しか入れないよ！</h1>
+        <form action="" id="form">
+            <input type="text" name="id" id="id" placeholder="id">
+            <input type="text" name="password" id="password" placeholder="password" onkeyup="inputCheck()">
+            <div id="check"></div>
+            <input type="submit" value="送信">
+        </form>
+    </div>
+    <script>
+        document.getElementById('form').addEventListener('submit', function(event) {
+        event.preventDefault(); // フォームのデフォルトの送信動作をキャンセルする
+
+        // フォームから値を取得する
+        var id = document.getElementsByName('id')[0].value;
+        var password = document.getElementsByName('password')[0].value;
+
+        // JSONファイルを取得する
+        fetch('account.json')
+            .then(response => response.json())
+            .then(jsonData => {
+            // 取得したJSONデータとフォームの値を比較する
+            if (id === jsonData.id && password === jsonData.password) {
+                // 一致している場合はアラートを表示する
+                alert('%E6%AD%A3%E8%A7%A3%EF%BC%81%E6%AC%A1%E3%81%AF%22%2Flast%22');
+            } else {
+                // 一致していない場合は別の処理を行う（ここでは何もしない）
+            }
+            })
+            .catch(error => {
+            // エラーハンドリング
+            console.error('JSONデータの取得に失敗しました:', error);
+            });
+
+        // ここでサーバーに値を送信するなどの追加の処理を行うことができます
+        });
+
+        function inputCheck(){
+            var pass = document.getElementById( "password" ).value;
+            if(!(isFinite(pass))){
+                document.getElementById("check").innerHTML = '数値を入力してください';
+            }
+            else if(pass.length != 4){
+                document.getElementById("check").innerHTML = '4桁の数字で入力してください';
+            }
+            else if()
+            else {
+                document.getElementById("check").innerHTML = '';
+            }
+        }
+    </script>
+</body>

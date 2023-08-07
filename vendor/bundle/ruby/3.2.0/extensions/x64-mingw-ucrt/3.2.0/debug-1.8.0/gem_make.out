@@ -1,0 +1,20 @@
+current directory: D:/Pragram/Ruby/tool/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+D:/Pragram/Ruby/Ruby32-x64/bin/ruby.exe extconf.rb
+creating Makefile
+
+current directory: D:/Pragram/Ruby/tool/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20230705-39400-4wbz8g sitelibdir\=./.gem.20230705-39400-4wbz8g clean
+
+current directory: D:/Pragram/Ruby/tool/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20230705-39400-4wbz8g sitelibdir\=./.gem.20230705-39400-4wbz8g
+generating debug-x64-mingw-ucrt.def
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+
+current directory: D:/Pragram/Ruby/tool/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20230705-39400-4wbz8g sitelibdir\=./.gem.20230705-39400-4wbz8g install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20230705-39400-4wbz8g/debug
+
+current directory: D:/Pragram/Ruby/tool/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20230705-39400-4wbz8g sitelibdir\=./.gem.20230705-39400-4wbz8g clean

@@ -1,0 +1,360 @@
+have_macro: checking for CLOCK_MONOTONIC in time.h... -------------------- yes
+
+PATH=".;D:/Pragram/Ruby/Ruby32-x64/lib;D:\Pragram\Ruby\Ruby32-x64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\ucrt64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\usr\bin;C:\Users\tttyy\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\tttyy\bin;D:\Program Files\ImageMagick-7.1.1-Q16-HDRI;C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\dotnet;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C;C:\Program Files\nodejs;D:\Pragram\Git\cmd;D:\Pragram\MinGW\bin;D:\Pragram\Ruby\Ruby32-x64\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Users\tttyy\AppData\Local\Microsoft\WindowsApps;C:\Users\tttyy\.dotnet\tools;C:\Users\tttyy\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\tttyy\AppData\Roaming\npm;C:\ProgramData\tttyy\GitHubDesktop\bin;D:\Pragram\chrome;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl" "gcc -o conftest.exe -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/x64-mingw-ucrt -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/ruby/backward -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LD:/Pragram/Ruby/Ruby32-x64/lib -L. -pipe -s -fstack-protector-strong -Wl,--no-as-needed  -m64   -lx64-ucrt-ruby320  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi -lbcrypt  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: int main(int argc, char **argv)
+6: {
+7:   return !!argv[argc];
+8: }
+/* end */
+
+PATH=".;D:/Pragram/Ruby/Ruby32-x64/lib;D:\Pragram\Ruby\Ruby32-x64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\ucrt64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\usr\bin;C:\Users\tttyy\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\tttyy\bin;D:\Program Files\ImageMagick-7.1.1-Q16-HDRI;C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\dotnet;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C;C:\Program Files\nodejs;D:\Pragram\Git\cmd;D:\Pragram\MinGW\bin;D:\Pragram\Ruby\Ruby32-x64\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Users\tttyy\AppData\Local\Microsoft\WindowsApps;C:\Users\tttyy\.dotnet\tools;C:\Users\tttyy\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\tttyy\AppData\Roaming\npm;C:\ProgramData\tttyy\GitHubDesktop\bin;D:\Pragram\chrome;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl" "gcc -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/x64-mingw-ucrt -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/ruby/backward -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math -fstack-protector-strong -m64  -c conftest.c"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <time.h>
+ 6: /*top*/
+ 7: #ifndef CLOCK_MONOTONIC
+ 8: # error
+ 9: |:/ === CLOCK_MONOTONIC undefined === /:|
+10: #endif
+/* end */
+
+--------------------
+
+have_type: checking for clockid_t in time.h... -------------------- yes
+
+PATH=".;D:/Pragram/Ruby/Ruby32-x64/lib;D:\Pragram\Ruby\Ruby32-x64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\ucrt64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\usr\bin;C:\Users\tttyy\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\tttyy\bin;D:\Program Files\ImageMagick-7.1.1-Q16-HDRI;C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\dotnet;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C;C:\Program Files\nodejs;D:\Pragram\Git\cmd;D:\Pragram\MinGW\bin;D:\Pragram\Ruby\Ruby32-x64\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Users\tttyy\AppData\Local\Microsoft\WindowsApps;C:\Users\tttyy\.dotnet\tools;C:\Users\tttyy\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\tttyy\AppData\Roaming\npm;C:\ProgramData\tttyy\GitHubDesktop\bin;D:\Pragram\chrome;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl" "gcc -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/x64-mingw-ucrt -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/ruby/backward -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math -fstack-protector-strong -m64  -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <time.h>
+6: 
+7: /*top*/
+8: typedef clockid_t conftest_type;
+9: int conftestval[sizeof(conftest_type)?1:-1];
+/* end */
+
+--------------------
+
+have_library: checking for clock_gettime() in -lrt... -------------------- no
+
+PATH=".;D:/Pragram/Ruby/Ruby32-x64/lib;D:\Pragram\Ruby\Ruby32-x64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\ucrt64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\usr\bin;C:\Users\tttyy\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\tttyy\bin;D:\Program Files\ImageMagick-7.1.1-Q16-HDRI;C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\dotnet;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C;C:\Program Files\nodejs;D:\Pragram\Git\cmd;D:\Pragram\MinGW\bin;D:\Pragram\Ruby\Ruby32-x64\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Users\tttyy\AppData\Local\Microsoft\WindowsApps;C:\Users\tttyy\.dotnet\tools;C:\Users\tttyy\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\tttyy\AppData\Roaming\npm;C:\ProgramData\tttyy\GitHubDesktop\bin;D:\Pragram\chrome;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl" "gcc -o conftest.exe -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/x64-mingw-ucrt -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/ruby/backward -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LD:/Pragram/Ruby/Ruby32-x64/lib -L. -pipe -s -fstack-protector-strong -Wl,--no-as-needed  -m64   -lx64-ucrt-ruby320 -lrt  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi -lbcrypt  "
+D:/Pragram/Ruby/Ruby32-x64/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/12.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot find -lrt: No such file or directory
+collect2.exe: error: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <time.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))clock_gettime; return !p; }
+/* end */
+
+PATH=".;D:/Pragram/Ruby/Ruby32-x64/lib;D:\Pragram\Ruby\Ruby32-x64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\ucrt64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\usr\bin;C:\Users\tttyy\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\tttyy\bin;D:\Program Files\ImageMagick-7.1.1-Q16-HDRI;C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\dotnet;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C;C:\Program Files\nodejs;D:\Pragram\Git\cmd;D:\Pragram\MinGW\bin;D:\Pragram\Ruby\Ruby32-x64\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Users\tttyy\AppData\Local\Microsoft\WindowsApps;C:\Users\tttyy\.dotnet\tools;C:\Users\tttyy\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\tttyy\AppData\Roaming\npm;C:\ProgramData\tttyy\GitHubDesktop\bin;D:\Pragram\chrome;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl" "gcc -o conftest.exe -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/x64-mingw-ucrt -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/ruby/backward -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LD:/Pragram/Ruby/Ruby32-x64/lib -L. -pipe -s -fstack-protector-strong -Wl,--no-as-needed  -m64   -lx64-ucrt-ruby320 -lrt  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi -lbcrypt  "
+conftest.c:18:13: error: conflicting types for 'clock_gettime'; have 'void()'
+   18 | extern void clock_gettime();
+      |             ^~~~~~~~~~~~~
+In file included from D:/Pragram/Ruby/Ruby32-x64/msys64/ucrt64/include/time.h:334,
+                 from D:/Pragram/Ruby/Ruby32-x64/msys64/ucrt64/include/iptypes.h:16,
+                 from D:/Pragram/Ruby/Ruby32-x64/msys64/ucrt64/include/iphlpapi.h:17,
+                 from D:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/ruby/win32.h:39,
+                 from D:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/ruby/internal/dosish.h:38,
+                 from D:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/ruby/defines.h:78,
+                 from D:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/ruby/ruby.h:25,
+                 from D:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/ruby.h:38,
+                 from conftest.c:1:
+D:/Pragram/Ruby/Ruby32-x64/msys64/ucrt64/include/pthread_time.h:92:28: note: previous declaration of 'clock_gettime' with type 'int(clockid_t,  struct timespec *)' {aka 'int(int,  struct timespec *)'}
+   92 | int __cdecl WINPTHREAD_API clock_gettime(clockid_t clock_id, struct timespec *tp);
+      |                            ^~~~~~~~~~~~~
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <time.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: extern void clock_gettime();
+19: int t(void) { clock_gettime(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for t_open() in -lnsl... -------------------- no
+
+PATH=".;D:/Pragram/Ruby/Ruby32-x64/lib;D:\Pragram\Ruby\Ruby32-x64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\ucrt64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\usr\bin;C:\Users\tttyy\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\tttyy\bin;D:\Program Files\ImageMagick-7.1.1-Q16-HDRI;C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\dotnet;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C;C:\Program Files\nodejs;D:\Pragram\Git\cmd;D:\Pragram\MinGW\bin;D:\Pragram\Ruby\Ruby32-x64\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Users\tttyy\AppData\Local\Microsoft\WindowsApps;C:\Users\tttyy\.dotnet\tools;C:\Users\tttyy\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\tttyy\AppData\Roaming\npm;C:\ProgramData\tttyy\GitHubDesktop\bin;D:\Pragram\chrome;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl" "gcc -o conftest.exe -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/x64-mingw-ucrt -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/ruby/backward -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LD:/Pragram/Ruby/Ruby32-x64/lib -L. -pipe -s -fstack-protector-strong -Wl,--no-as-needed  -m64   -lx64-ucrt-ruby320 -lnsl  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi -lbcrypt  "
+conftest.c: In function 't':
+conftest.c:17:57: error: 't_open' undeclared (first use in this function); did you mean '_open'?
+   17 | int t(void) { void ((*volatile p)()); p = (void ((*)()))t_open; return !p; }
+      |                                                         ^~~~~~
+      |                                                         _open
+conftest.c:17:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     int (* volatile tp)(void)=(int (*)(void))&t;
+12:     printf("%d", (*tp)());
+13:   }
+14: 
+15:   return !!argv[argc];
+16: }
+17: int t(void) { void ((*volatile p)()); p = (void ((*)()))t_open; return !p; }
+/* end */
+
+PATH=".;D:/Pragram/Ruby/Ruby32-x64/lib;D:\Pragram\Ruby\Ruby32-x64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\ucrt64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\usr\bin;C:\Users\tttyy\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\tttyy\bin;D:\Program Files\ImageMagick-7.1.1-Q16-HDRI;C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\dotnet;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C;C:\Program Files\nodejs;D:\Pragram\Git\cmd;D:\Pragram\MinGW\bin;D:\Pragram\Ruby\Ruby32-x64\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Users\tttyy\AppData\Local\Microsoft\WindowsApps;C:\Users\tttyy\.dotnet\tools;C:\Users\tttyy\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\tttyy\AppData\Roaming\npm;C:\ProgramData\tttyy\GitHubDesktop\bin;D:\Pragram\chrome;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl" "gcc -o conftest.exe -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/x64-mingw-ucrt -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/ruby/backward -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LD:/Pragram/Ruby/Ruby32-x64/lib -L. -pipe -s -fstack-protector-strong -Wl,--no-as-needed  -m64   -lx64-ucrt-ruby320 -lnsl  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi -lbcrypt  "
+D:/Pragram/Ruby/Ruby32-x64/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/12.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot find -lnsl: No such file or directory
+collect2.exe: error: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     int (* volatile tp)(void)=(int (*)(void))&t;
+12:     printf("%d", (*tp)());
+13:   }
+14: 
+15:   return !!argv[argc];
+16: }
+17: extern void t_open();
+18: int t(void) { t_open(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for socket() in -lsocket... -------------------- no
+
+PATH=".;D:/Pragram/Ruby/Ruby32-x64/lib;D:\Pragram\Ruby\Ruby32-x64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\ucrt64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\usr\bin;C:\Users\tttyy\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\tttyy\bin;D:\Program Files\ImageMagick-7.1.1-Q16-HDRI;C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\dotnet;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C;C:\Program Files\nodejs;D:\Pragram\Git\cmd;D:\Pragram\MinGW\bin;D:\Pragram\Ruby\Ruby32-x64\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Users\tttyy\AppData\Local\Microsoft\WindowsApps;C:\Users\tttyy\.dotnet\tools;C:\Users\tttyy\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\tttyy\AppData\Roaming\npm;C:\ProgramData\tttyy\GitHubDesktop\bin;D:\Pragram\chrome;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl" "gcc -o conftest.exe -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/x64-mingw-ucrt -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/ruby/backward -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LD:/Pragram/Ruby/Ruby32-x64/lib -L. -pipe -s -fstack-protector-strong -Wl,--no-as-needed  -m64   -lx64-ucrt-ruby320 -lsocket  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi -lbcrypt  "
+D:/Pragram/Ruby/Ruby32-x64/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/12.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot find -lsocket: No such file or directory
+collect2.exe: error: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     int (* volatile tp)(void)=(int (*)(void))&t;
+12:     printf("%d", (*tp)());
+13:   }
+14: 
+15:   return !!argv[argc];
+16: }
+17: int t(void) { void ((*volatile p)()); p = (void ((*)()))socket; return !p; }
+/* end */
+
+PATH=".;D:/Pragram/Ruby/Ruby32-x64/lib;D:\Pragram\Ruby\Ruby32-x64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\ucrt64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\usr\bin;C:\Users\tttyy\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\tttyy\bin;D:\Program Files\ImageMagick-7.1.1-Q16-HDRI;C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\dotnet;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C;C:\Program Files\nodejs;D:\Pragram\Git\cmd;D:\Pragram\MinGW\bin;D:\Pragram\Ruby\Ruby32-x64\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Users\tttyy\AppData\Local\Microsoft\WindowsApps;C:\Users\tttyy\.dotnet\tools;C:\Users\tttyy\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\tttyy\AppData\Roaming\npm;C:\ProgramData\tttyy\GitHubDesktop\bin;D:\Pragram\chrome;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl" "gcc -o conftest.exe -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/x64-mingw-ucrt -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/ruby/backward -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LD:/Pragram/Ruby/Ruby32-x64/lib -L. -pipe -s -fstack-protector-strong -Wl,--no-as-needed  -m64   -lx64-ucrt-ruby320 -lsocket  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi -lbcrypt  "
+conftest.c:17:13: error: conflicting types for 'socket'; have 'void()'
+   17 | extern void socket();
+      |             ^~~~~~
+In file included from D:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/ruby/win32.h:36,
+                 from D:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/ruby/internal/dosish.h:38,
+                 from D:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/ruby/defines.h:78,
+                 from D:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/ruby/ruby.h:25,
+                 from D:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/ruby.h:38,
+                 from conftest.c:1:
+D:/Pragram/Ruby/Ruby32-x64/msys64/ucrt64/include/winsock2.h:1037:37: note: previous declaration of 'socket' with type 'SOCKET(int,  int,  int)' {aka 'long long unsigned int(int,  int,  int)'}
+ 1037 |   WINSOCK_API_LINKAGE SOCKET WSAAPI socket(int af,int type,int protocol);
+      |                                     ^~~~~~
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     int (* volatile tp)(void)=(int (*)(void))&t;
+12:     printf("%d", (*tp)());
+13:   }
+14: 
+15:   return !!argv[argc];
+16: }
+17: extern void socket();
+18: int t(void) { socket(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for poll() in poll.h... -------------------- no
+
+PATH=".;D:/Pragram/Ruby/Ruby32-x64/lib;D:\Pragram\Ruby\Ruby32-x64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\ucrt64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\usr\bin;C:\Users\tttyy\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\tttyy\bin;D:\Program Files\ImageMagick-7.1.1-Q16-HDRI;C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\dotnet;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C;C:\Program Files\nodejs;D:\Pragram\Git\cmd;D:\Pragram\MinGW\bin;D:\Pragram\Ruby\Ruby32-x64\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Users\tttyy\AppData\Local\Microsoft\WindowsApps;C:\Users\tttyy\.dotnet\tools;C:\Users\tttyy\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\tttyy\AppData\Roaming\npm;C:\ProgramData\tttyy\GitHubDesktop\bin;D:\Pragram\chrome;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl" "gcc -o conftest.exe -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/x64-mingw-ucrt -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/ruby/backward -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LD:/Pragram/Ruby/Ruby32-x64/lib -L. -pipe -s -fstack-protector-strong -Wl,--no-as-needed  -m64   -lx64-ucrt-ruby320  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi -lbcrypt  "
+conftest.c:5:10: fatal error: poll.h: No such file or directory
+    5 | #include <poll.h>
+      |          ^~~~~~~~
+compilation terminated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <poll.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))poll; return !p; }
+/* end */
+
+PATH=".;D:/Pragram/Ruby/Ruby32-x64/lib;D:\Pragram\Ruby\Ruby32-x64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\ucrt64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\usr\bin;C:\Users\tttyy\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\tttyy\bin;D:\Program Files\ImageMagick-7.1.1-Q16-HDRI;C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\dotnet;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C;C:\Program Files\nodejs;D:\Pragram\Git\cmd;D:\Pragram\MinGW\bin;D:\Pragram\Ruby\Ruby32-x64\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Users\tttyy\AppData\Local\Microsoft\WindowsApps;C:\Users\tttyy\.dotnet\tools;C:\Users\tttyy\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\tttyy\AppData\Roaming\npm;C:\ProgramData\tttyy\GitHubDesktop\bin;D:\Pragram\chrome;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl" "gcc -o conftest.exe -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/x64-mingw-ucrt -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/ruby/backward -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LD:/Pragram/Ruby/Ruby32-x64/lib -L. -pipe -s -fstack-protector-strong -Wl,--no-as-needed  -m64   -lx64-ucrt-ruby320  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi -lbcrypt  "
+conftest.c:5:10: fatal error: poll.h: No such file or directory
+    5 | #include <poll.h>
+      |          ^~~~~~~~
+compilation terminated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <poll.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: extern void poll();
+19: int t(void) { poll(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for getaddrinfo() in sys/types.h,sys/socket.h,netdb.h... -------------------- no
+
+PATH=".;D:/Pragram/Ruby/Ruby32-x64/lib;D:\Pragram\Ruby\Ruby32-x64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\ucrt64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\usr\bin;C:\Users\tttyy\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\tttyy\bin;D:\Program Files\ImageMagick-7.1.1-Q16-HDRI;C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\dotnet;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C;C:\Program Files\nodejs;D:\Pragram\Git\cmd;D:\Pragram\MinGW\bin;D:\Pragram\Ruby\Ruby32-x64\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Users\tttyy\AppData\Local\Microsoft\WindowsApps;C:\Users\tttyy\.dotnet\tools;C:\Users\tttyy\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\tttyy\AppData\Roaming\npm;C:\ProgramData\tttyy\GitHubDesktop\bin;D:\Pragram\chrome;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl" "gcc -o conftest.exe -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/x64-mingw-ucrt -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/ruby/backward -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LD:/Pragram/Ruby/Ruby32-x64/lib -L. -pipe -s -fstack-protector-strong -Wl,--no-as-needed  -m64   -lx64-ucrt-ruby320  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi -lbcrypt  "
+conftest.c:6:10: fatal error: sys/socket.h: No such file or directory
+    6 | #include <sys/socket.h>
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <sys/types.h>
+ 6: #include <sys/socket.h>
+ 7: #include <netdb.h>
+ 8: 
+ 9: /*top*/
+10: extern int t(void);
+11: int main(int argc, char **argv)
+12: {
+13:   if (argc > 1000000) {
+14:     int (* volatile tp)(void)=(int (*)(void))&t;
+15:     printf("%d", (*tp)());
+16:   }
+17: 
+18:   return !!argv[argc];
+19: }
+20: int t(void) { void ((*volatile p)()); p = (void ((*)()))getaddrinfo; return !p; }
+/* end */
+
+PATH=".;D:/Pragram/Ruby/Ruby32-x64/lib;D:\Pragram\Ruby\Ruby32-x64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\ucrt64\bin;D:\Pragram\Ruby\Ruby32-x64\msys64\usr\bin;C:\Users\tttyy\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\tttyy\bin;D:\Program Files\ImageMagick-7.1.1-Q16-HDRI;C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\dotnet;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C;C:\Program Files\nodejs;D:\Pragram\Git\cmd;D:\Pragram\MinGW\bin;D:\Pragram\Ruby\Ruby32-x64\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Users\tttyy\AppData\Local\Microsoft\WindowsApps;C:\Users\tttyy\.dotnet\tools;C:\Users\tttyy\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\tttyy\AppData\Roaming\npm;C:\ProgramData\tttyy\GitHubDesktop\bin;D:\Pragram\chrome;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl" "gcc -o conftest.exe -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/x64-mingw-ucrt -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0/ruby/backward -ID:/Pragram/Ruby/Ruby32-x64/include/ruby-3.2.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LD:/Pragram/Ruby/Ruby32-x64/lib -L. -pipe -s -fstack-protector-strong -Wl,--no-as-needed  -m64   -lx64-ucrt-ruby320  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi -lbcrypt  "
+conftest.c:6:10: fatal error: sys/socket.h: No such file or directory
+    6 | #include <sys/socket.h>
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <sys/types.h>
+ 6: #include <sys/socket.h>
+ 7: #include <netdb.h>
+ 8: 
+ 9: /*top*/
+10: extern int t(void);
+11: int main(int argc, char **argv)
+12: {
+13:   if (argc > 1000000) {
+14:     int (* volatile tp)(void)=(int (*)(void))&t;
+15:     printf("%d", (*tp)());
+16:   }
+17: 
+18:   return !!argv[argc];
+19: }
+20: extern void getaddrinfo();
+21: int t(void) { getaddrinfo(); return 0; }
+/* end */
+
+--------------------
+

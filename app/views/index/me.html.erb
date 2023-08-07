@@ -1,0 +1,100 @@
+<% provide(:title, 'yuma4869について | yuma4869')
+provide(:github,'https://github.com/yuma4869/Tool') %>
+<style>
+.deco {
+	color:#4f6cef;
+	text-decoration: underline;
+}
+.container {
+    text-align:center;
+}
+.history {
+    margin:2em;
+    border-top:10px solid rgba(255,255,255,0.6);
+}
+.account {
+    margin:2em;
+    border-top:10px solid rgba(255,255,255,0.6);
+}
+.skil {
+    margin:2em;
+    border-top:10px solid rgba(255,255,255,0.6);
+}
+.content {
+    display:flex;
+    line-height:2em;
+}
+.item {
+  margin: 1rem;
+  width: auto;/*10rem*/
+  background-color: #FFC679;
+  transition: all 2s ease;
+  padding:15px;
+  font-size:2rem;
+  border: 7px solid #F99292
+}
+#hover {
+  display: none;
+  font-size:0.5em;
+  border-top:1px dotted #515151;
+}
+.now {
+  border-top:1px dotted #515151;
+}
+.day {
+  
+  font-weight: bolder;
+}
+.item:hover #hover {
+  display: block;
+}
+.item:hover {
+  background-color: #FFF4E0;
+}
+</style>
+
+<div class="container">
+    <div class="who">
+        <h1>こんにちはyuma4869です(0__0)</h1>
+        <p>現役中学生しながら、この界隈にはいりこみました。</p>
+    </div>
+    <div class="history">
+        <h1>my history</h1>
+        <div class="wrap">
+            <div class="item">生～小学生
+                <div id="hover">
+                    <p class="content">普通の元気なクソガキ人生を送る</p>
+                </div>
+            </div>
+            <div class="item">中１
+                <div id="hover">
+                    <p class="content"><span class="day">９月</span>プログラミングに出会う。Cを始める</p>
+                    <p class="content"><span class="day">12月</span>ドメイン取得<a class="deco" href="https://yumasblog.net">yumasblog.net</a></p>
+                    <p class="content"><span class="day">３月</span>初めてのことに戸惑いながらも手書きでブログを書く<a href="https://tool.yumasblog.net/yumablog">手書きブログ</a></p>
+                </div>
+            </div>
+            <div class="item">中２
+                <div id="hover">
+                    <p class="content"><span class="day">４月</span>twitterをはじめ、すごい人たちを見る</p>
+                    <p class="content"><span class="day">４月</span>本格的に記事を作り始める</p>
+                    <p class="content"><span class="day">６月</span>webツールを作り始める</p>
+                    <p class="content"><span class="day">６月</span>応用情報技術者試験に合格する</p>
+                    <p class="content now"><span class="day">今ここ</span>yuma4869.com開設</p>
+                    <!--<p class="content"><span class="day">５月中盤</span>サイトのURLが日本語だったので</p>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="skil">
+        <h1>できること</h1>
+        <p>web開発(rails php)</p>
+        <p>サイト作り(html css js)</p>
+        <p>C言語</p>
+    </div>
+    <div class="account">
+        <h1>アカウント</h1>
+        <div class="show">
+            <h3>twitter<a class="deco-a" href="https://twitter.com/yuma4869b">@yuma4869b</a></h3>
+        </div>
+    </div>
+</div>

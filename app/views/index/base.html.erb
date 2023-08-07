@@ -1,0 +1,84 @@
+<% provide(:title, 'yuma4869 | yuma4869') 
+   provide(:description,'中学生が運営する、webサービスです。')
+   provide(:keywords,'webサービス,webツール,yuma4869,中学生エンジニア')
+   provide(:github,'https://github.com/yuma4869/Tool')
+%>
+<style>
+body {
+    background-color: rgb(1, 57, 0);
+    color:rgba(255, 255, 255, 0.808);
+}
+.explain {
+    color:white;
+    
+}
+.content {
+    padding:15px;
+    margin:0 auto ;
+    text-align: center;
+    border-top: 3px solid rgb(140, 182, 255);
+    padding-bottom: 2em;
+}
+.heading {
+    position:relative;
+    padding:15px;
+    margin:0 auto ;
+    margin-top:2em;
+    text-align: center;
+    width:50%;
+    border:2px solid rgb(165, 41, 41);
+    border-radius: 10px;
+    color:rgba(255, 255, 255, 0.808);
+}
+
+.type {
+    position: absolute;
+    top:10px;
+    left:10px;
+    z-index: 50;
+    background-color: rgb(255, 0, 0);
+    color:white;
+    padding:0.4vw;
+    border-radius: 10px;
+    font-size:0.2em;
+}
+.summary {
+    margin-top:10px;
+    line-height:30px;
+}
+@media (max-width:700px) {
+    .heading {width:100%;}
+}
+@media (max-width:800px) {
+    .tools {padding-top:60px;}
+}
+</style>
+<div class="container">
+<div class="explain">
+    <h1>tools | yuma4869</h1>
+    <p>安心安全のOSSで無料のツールを提供しています。</p>
+    <p>初めての方は<a class="deco-a" href="/about">yuma4869.comとは？</a>をご覧ください</p>
+</div>
+    <div class="tools">
+        <div class="content">
+            <a href="https://machine.yuma4869.com/"><h3 class="heading"><span class="type">tool</span>machineConverter</h3></a>
+            <h4 class="summary">C言語のコードを機械語（二進数）に変換するサービスです。<br>コードの補完機能もついています</h4>
+        </div>
+        <div class="content">
+            <a href="https://yuma4869.com/tasks"><h3 class="heading"><span class="type">tool</span>共有できる！勉強管理サービス</h3></a>
+            <h4 class="summary">一日の勉強を管理するサービスです<br>月に何を何時間勉強したなどをグラフで確認することができます<br>また、同じサービスを使っているほかの人の予定も見ることができ、モチベが上がります</h4>
+        </div>
+        <%# <div class="container">
+            <a href="https://yuma4869.com/mathck"><h3 class="heading"><span class="type">challenge</span>mathck</h3></a>
+            <h4 class="summary">数学好きのエンジニアやハッカー向けの挑戦状です<br>実際のハッキングなどとはほど遠いので了承してください（あくまで娯楽として）<br>ちなみにmathckとはmathとhackを合わせた造語です（）</h4>
+        </div>
+        <div class="container">
+            <a href="https://makeop.yuma4869.com"><h3 class="heading">MAKEOP</h3></a>
+            <h4 class="summary"><span style="color:red">現在制作中</span></h4>
+        </div>
+        <div class="container">
+            <h3 class="heading">フィルタリング抜けサイト</h3>
+            <h4 class="summary"><span class="red">OSコマンドインジェクションや不正なサイトへのアクセスが懸念されるため削除</span></h4>
+        </div> %>
+    </div>
+</div>

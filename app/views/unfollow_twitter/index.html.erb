@@ -1,0 +1,263 @@
+<style>
+    body {
+        margin:0;
+        padding:0;
+        border:0;
+    }
+    .red {
+        background-color:red;
+    }
+
+    .login h1 {
+        text-align:center;
+    }
+    .form {
+        display:flex;
+        width:fit-content;
+        margin:auto;
+    }
+    input[type=text], input[type=name]{
+        height:50px;
+        border-radius:10px;
+    }
+    input[type=submit]{
+        display:block;
+        cursor: pointer;
+        width:auto;
+        margin:0 auto;
+        padding:10px;
+        background-color:rgba(255, 192, 104,0.9);
+        color:white;
+        font-size: 1em;
+        border:0;
+        border-radius:10px;
+    }
+    input[type=submit]:hover {
+        background-color: grey;
+    }
+    .item {
+        height:100px;
+    }
+    .account {
+        background-color:white;
+        display:flex;
+        border-bottom:3px solid rgba(1,1,1,0.5);
+        margin:4px;
+    }
+    .batsu{
+        font-size: 100%;/*ボタンの大きさ*/
+        font-weight: bold;
+        border: 1px solid #999;
+        color: #999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        width: 1.3em;
+        line-height: 1.3em;
+        cursor: pointer;
+        transition: .2s;
+    }
+        
+    .batsu:hover{
+        background: #333;
+        border-color: #333;
+        color: #FFF;
+    }
+    #caution h2 {
+        margin-top:30px;
+        margin-bottom:40px;
+        position: relative;
+        padding: 1.5rem 1.5rem calc(1.5rem + 10px);
+        border: 2px solid #000;
+        background-color: rgba(255, 255, 127,0.9);
+        color:rgb(248, 81, 81);
+    }
+  
+    #caution h2:after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        content: '';
+        border-top: 2px solid #000;
+        background-image: -webkit-repeating-linear-gradient(135deg, #000, #000 1px, transparent 2px, transparent 5px);
+        background-image: repeating-linear-gradient(-45deg, #000, #000 1px, transparent 2px, transparent 5px);
+        background-size: 7px 7px;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    .midashi {
+        margin-top:2rem;
+        margin-bottom:3rem;
+        padding:1rem 2rem;
+        border-bottom:3px solid rgb(0, 0, 0);
+        border-top:3px solid #000;
+    }
+    .unfollow {
+        border-top:3px solid red;
+    }
+    
+    .flex {
+        float:left;
+    }
+
+    .check {
+        	margin-top:30px;
+	margin-bottom:40px;
+	position: relative;
+	padding: 1.5rem 1.5rem calc(1.5rem + 10px);
+	border: 2px solid #000;
+	background-color: rgba(255, 255, 127,0.9);
+        	border-top: 2px solid #000;
+        	background-color: rgba(255, 255, 127,0.9);
+    }
+
+    .check h2 {
+        color:rgb(248, 81, 81);
+    }
+
+    .unfollow_button{
+    display:block;
+    cursor: pointer;
+    width:auto;
+
+    padding:10px;
+    background-color:rgba(255, 192, 104,0.7);
+    color:white;
+    font-size: 1em;
+    border:0;
+    border-radius:10px;
+    }
+    .unfollow_button:hover {
+    background-color: grey;
+    }
+
+
+    .btn_all_unfollow {
+        display:block;
+        cursor: pointer;
+        width:auto;
+        margin:0 auto;
+        margin-top:20px;
+        padding:10px;
+        background-color:#8B0000;
+        font-size: 1em;
+        border:0;
+        border-radius:10px;
+        color:#FFFFFF
+    }
+    .btn_all_unfollow:hover {
+        background-color: #FF0000;
+        color:#FFFFFF
+    }
+</style>
+
+<div class="container">
+
+    <div class="explain">
+        <h1>twitterフォロー整理ツール：自動・無料</h1>
+        <p>このツールはtwitterAPIを使用していないので、アプリとかに比べれば処理が遅いかもしれません。<br>しかし、面倒なログインなどがなくすぐに始められます。</p>
+        <h3 style="color:#F0A860;">chromeにchromedriverがインストールされていないと使えません。インストールする場合は<a href="">こちらから</a>自動で10秒ほどでインストールできます</h3>
+        <p>twitterAPIの有料化に伴いこのツールを作りました。seleniumなどのwebスクレイピングという選択肢もあると覚えていただけたら幸いです。</p>
+    </div>
+
+    <div class="login">
+        <h1>アカウント認証（twitter）</h1>
+                <!--脆弱性見ようとスンナ-->
+            <%= form_tag("/unfollow_twitter/account") do %>
+            <!--ごめんなさい脆弱性探さないで諸新車なんです見つかったら教えて-->
+                <div class="form">
+                    <div class="name item">
+                        名前 or 電話番号
+                        <input type="name" name="name">
+                    </div>
+                    <div class="password item">
+                        パスワード
+                        <input type="text" name="password">
+                    </div>
+                </div>
+                    <input type="submit" class="submit" value="送信">
+            <% end %>
+    </div>
+
+
+<% if !$errors.nil? && $errors.size >= 2 && $errors[1] != nil %>
+    <div id="caution">
+    <h2 class="error">※エラー　<%= $errors[1] %></h2>
+    </div>
+<% end %>
+
+<div id="caution">
+    <h2>ウィンドウが出てきますが、フォローしている人の取得が終わってから閉じてください（サイズを変えるのもやめてください、動かすのはOK）<br>処理がうまくいきません</h2>
+</div>
+
+<% if $unfollow_me_list.nil? %>
+    <h2 class="midashi">目安</h2>
+        <h2>フォロー数が350人くらいだと2分40秒くらいかかります</h2>
+<%end%>
+
+<% if !$unfollow_me_list.nil? %>
+    <h2 class="midashi">あなたがフォローしてる中で、フォローバックされてないアカウント</h2>
+
+    <h2 style="text-align:center">フォローを外したい人を番号で一括指定できます</h2>
+    <%= form_tag('/unfollow_twitter/bulk_unfollow') do %>
+        <div class="form" id="form">
+            <p>最初の番号<input type="text" name="first" id="first" onkeyup="inputCheck()">　最後の番号<input type="text" name="last" id="last" onkeyup="inputCheck()"></p><!--バリデーション　2s　みたいなの入れられたら検索結果変になる同様にアカウント認証も文字エスケープ処理する-->
+        </div>
+        <p id="check" style="text-align:center;padding:10px;color:white;"></p>
+        <input type="submit" value="確認" id="btn_submit">
+    <%end%>
+
+    <%= form_tag('/unfollow_twitter/all_unfollow') do %>
+        <button type="submit" class="btn_all_unfollow">フォローを外すと選択されている人のフォローをすべて外す</button>
+    <% end %>
+
+    <% if !$unfollow_list.nil? && $unfollow_list.size != 0 %>
+        <div class="check">
+            <h2>こちらの人たちのフォローを外してよいでしょうか</h2>
+
+            <% $unfollow_list.each do |list| %>
+                <%= button_to  "×",{controller: 'unfollow_twitter',action: 'delete_unfollow'},{method: :post,params: {list: list},class: "batsu flex"} %>
+                <a class="flex" href="<%="https://twitter.com/#{list}"%>"><%= $unfollow_me_list.find{|k,v| v == list}&.first %> id: <%= list %></a>
+            <%end%>
+            <p>　</p>
+            <%= button_to 'フォローを外す', {controller: 'unfollow_twitter',action: 'unfollow_do'},{method: :get,class: "unfollow_button"} %>
+        </div>
+    <%end%>
+
+    <% $follow_list = {} 
+        i = 0%>
+    <% $unfollow_me_list.each do |name,id| %>
+        <% $follow_list["#{i}"] = id %>
+        <div class="account">
+            <% if $follow.any? {|v| id == v} %>
+                <%= button_to 'フォローを外す　　', {controller: 'unfollow_twitter',action: 'follow_to_unfollow'},{method: :get,params: {id: id,i: i},class: "red"} %>
+                <% @message = "今この人のフォローを外さない設定です。" %>
+            <% else %>
+                <%= button_to 'フォローを外さない', {controller: 'unfollow_twitter',action: 'follow'},{method: :get,params: {id: id,i: i}} %>
+                <% @message = "今この人のフォローを外す設定です。　　" %>
+            <% end %>
+            <a href="<%="https://twitter.com/#{id}"%>" id="<%= i %>"><%= @message %> <%= name %> アカウントID: <%= id %>  <%="#{i}番目"%></a><br>
+        </div>
+        <%i+=1%>
+    <% end %>
+<% end %>
+
+</div>
+
+</div>
+
+<script>
+    function inputCheck(){
+        var first = document.getElementById( "first" ).value;
+        var last = document.getElementById("last").value;
+        if(!(isFinite(first)) || !(isFinite(last))){
+            document.getElementById("check").innerHTML = '数値を入力してください';
+        }
+        else {
+            document.getElementById("check").innerHTML = '';            
+        }
+    }
+</script>

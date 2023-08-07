@@ -1,0 +1,179 @@
+<style>
+    .container {
+        text-align:center;
+
+    }
+    body{
+  margin:0;
+  color:#6a6f8c;
+  background:#c8c8c8;
+  font:600 16px/18px 'Open Sans',sans-serif;
+}
+*,:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+a{color:inherit;text-decoration:none}
+
+p {
+    line-height:2em;
+}
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+table tr{
+  border-bottom: solid 1px #eee;
+  cursor: pointer;
+}
+
+table tr:hover{
+  background-color: #d4f0fd;
+}
+
+table th,table td{
+  text-align: center;
+  width: 25%;
+  padding: 15px 0;
+}
+th {
+    background-color:#d488fd
+}
+.btn,
+a.btn,
+button.btn {
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 0.5vw 2vw;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+
+a.btn-flat {
+  overflow: hidden;
+
+  padding: 0.75vw 3vw;
+
+  color: #fff;
+  border-radius: 0;
+  background: #000;
+}
+
+a.btn-flat span {
+  position: relative;
+}
+
+a.btn-flat:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100px;
+  height: 100px;
+
+  content: '';
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  -webkit-transform: translateX(-80%) translateY(-25px);
+  transform: translateX(-80%) translateY(-25px);
+
+  border-radius: 50%;
+  background: #eb6100;
+}
+
+a.btn-flat:hover:before {
+  width: 400px;
+  height: 400px;
+
+  -webkit-transform: translateX(-1%) translateY(-175px);
+
+  transform: translateX(-1%) translateY(-175px);
+}
+</style>
+<div class="container">
+<h3 style="padding-bottom:15px"><%= params[:name] %>のタスク</h3>
+<a href="/tasks/<%= params[:name] %>/total" class="btn btn-flat"><span><%= params[:name] %>の統計</span></a>
+    <div class="task">
+       <table id="taskList">
+            <tr>
+                <th>お名前</th>
+                <th>タイトル</th>
+                <th>内容</th>
+                <th>時間</th>
+            </tr>
+            
+        <%  @titles = []
+            @times = []
+            sum_time = 0 #下の変数で最初に定義しておかないといけない
+            @tasks.each do |task| %>
+            <% #円グラフ作成用に時間ごとのタイトルを配列に入れる 
+                time = task.time.to_f
+                sum_time = time + sum_time
+                @times.push(time)
+                @titles.push(task.title)
+            %>
+            <tr>
+                <td><%= task.name %></td>
+                <td><%= task.title %></td>
+                <td><%= task.content %></td>
+                <td><%= task.time %></td>
+            </tr>
+        <% end %>
+        </table>
+    </div>
+    <div class="graph">
+        <canvas id="tasksPieChart"></canvas>
+        <!--円グラフを作ろう！-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+        <% #合計の時間から24時間を引いて円グラフを正しくするため
+            @times.push(24.0-sum_time)
+        %>
+        <script>
+            // ランダムなRGB値を生成する関数
+            function getRandomColor() {
+            var r = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+            return `rgb(${r}, ${g}, ${b})`;
+            }
+            var times = <%= @times %>;
+            var titles = <%= raw @titles.to_json %>;
+            var backgroundColors = ["#BB5179","#FAFF67","#58A27C","#3C00FF" ];
+            while (backgroundColors.length < times.length) {
+                backgroundColors.push(getRandomColor());
+            } 
+            var ctx = document.getElementById("tasksPieChart");
+            var myPieChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                labels: titles,
+                datasets: [{
+                    backgroundColor: backgroundColors,
+
+                    data: times
+                }]
+                },
+                options: {
+                title: {
+                    display: true,
+                    text: 'タスク円グラフ　単位（時間）'
+                }
+                }
+            });
+        </script>
+    </div>
+</div>

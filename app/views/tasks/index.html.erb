@@ -1,0 +1,471 @@
+<% provide(:title, '勉強時間管理サービス | yuma4869') 
+   provide(:description,'他の人の勉強時間や内容などをグラフなどで簡単に見たり、自分の勉強時間も管理できるサービスです。ヘルプ付きで簡単操作で完結！')
+   provide(:keywords,'勉強,勉強時間,todo,モチベ,yuma4869')
+   provide(:github,'https://github.com/yuma4869/Tool')
+%>
+<style>
+    .container {
+        text-align:center;
+
+    }
+    body{
+  margin:0;
+  color:#6a6f8c;
+  background:#c8c8c8;
+  font:600 16px/18px 'Open Sans',sans-serif;
+}
+*,:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+a{color:inherit;text-decoration:none}
+
+p {
+    line-height:2em;
+}
+.deco-a {
+  color: #4d4dff; /* 薄い青色 (例として) */
+}
+.deco-a:hover {
+  color: #3366ff; /* より濃い青色 (例として) */
+}
+.explain {
+    padding-bottom:2em;
+}
+.login {
+    text-align:center;
+}
+.logout {
+    width:30%;
+    margin:1em auto;
+    padding:15px 0;
+    background-color:white;
+}
+.task {
+    border:2px solid black;
+
+}
+.other_task {
+    margin-top:2em;
+}
+.other_task h3 {
+    padding:1em;
+}
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+table tr{
+  border-bottom: solid 1px #eee;
+  cursor: pointer;
+}
+
+table tr:hover{
+  background-color: #d4f0fd;
+}
+
+table th,table td{
+  text-align: center;
+  width: 25%;
+  padding: 15px 0;
+}
+#create_table th,#create_table td,
+#taskList th,#taskList td,
+input{
+  text-align: center;
+  width: 20%;
+  padding: 15px 0;
+}
+input {
+    width:95%;
+}
+    input[type=submit]{
+        display:block;
+        cursor: pointer;
+        width:90%;
+        margin:10px auto;
+        padding:10px;
+        background-color:rgba(244, 192, 104,0.8);
+        color:white;
+        font-size: 1em;
+        border:0;
+        border-radius:10px;
+    }
+    input[type=submit]:hover {
+        background-color: grey;
+    }
+
+th {
+    background-color:#d488fd
+}
+
+table td.icon{
+  background-size: 35px;
+  background-position: left 5px center;
+  background-repeat: no-repeat;
+  padding-left: 30px;
+}
+.error-message {
+  background-color: #f44336;
+  color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+#check {
+  margin-top:15px;
+}
+.btn,
+a.btn,
+button.btn {
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 0.5vw 2vw;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+
+a.btn-flat {
+  overflow: hidden;
+
+  padding: 0.75vw 3vw;
+
+  color: #fff;
+  border-radius: 0;
+  background: #000;
+}
+
+a.btn-flat span {
+  position: relative;
+}
+
+a.btn-flat:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100px;
+  height: 100px;
+
+  content: '';
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  -webkit-transform: translateX(-80%) translateY(-25px);
+  transform: translateX(-80%) translateY(-25px);
+
+  border-radius: 50%;
+  background: #eb6100;
+}
+
+a.btn-flat:hover:before {
+  width: 400px;
+  height: 400px;
+
+  -webkit-transform: translateX(-1%) translateY(-175px);
+
+  transform: translateX(-1%) translateY(-175px);
+}
+/**/
+a.btn-border {
+  padding: 1.5rem 4rem;
+  border: 3px solid #000;
+  border-radius: 0;
+  background: #fff;
+}
+
+a.btn-border:before {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  width: 100%;
+  content: '';
+  -webkit-transition: all .3s;
+  transition: all .3s;
+
+  border-top: 3px dotted #000;
+}
+
+a.btn-border:after {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 100%;
+  content: '';
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  border-top: 3px dotted #000;
+}
+
+a.btn-border:hover:before {
+  top: -3px;
+  background: #000;
+}
+
+a.btn-border:hover:after {
+  bottom: -3px;
+  background: #000;
+}
+/* ボタンの基本スタイル */
+.plus-button {
+    position:relative;
+  display: inline-block;
+  text-align:right;
+  padding: 8px 12px;
+  margin:10px auto;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+/* プラス記号のスタイル */
+.plus-button span {
+  font-weight: bold;
+}
+
+/* ボタンにマウスを乗せた時のスタイル */
+.plus-button:hover {
+  background-color: #e0e0e0;
+}
+
+/* 一般的なボタンのスタイル */
+.delete_button {
+  padding: 10px 20px;
+  background-color: #f2a1a1;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+}
+
+/* ホバーエフェクト */
+.delete_button:hover {
+  background-color: #ee7b7b;
+}
+
+.flex {
+    display:flex;
+        justify-content: space-between; /* 左寄りと右寄りに分ける */
+}
+</style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<%= javascript_include_tag 'tasks' %>
+<div class="container">
+<div class="explain">
+    <h1 class="title">勉強時間管理サービス</h1>
+    <p>自分の予定を入力すると、月何時間なんの勉強をしたかカテゴリー別に確認できます。</p>
+    <p>他の人の予定なども見れてモチベが上がります</p>
+    <p style="font-size:5px">本当は開発者が個人で使いたかっただけ、、</p>
+</div>
+<% if loggedin? %>
+    <div class="login">
+        <div class="logout">
+            <a href="/logout"><i class="fas fa-power-off" style="font-size:3em;"></i><span>ログアウト</span></a>
+        </div>
+        <div class="flex">
+            <h3 style="padding-left:10px;"><%= @current_user.name %>のタスク<%= session[:user_id] %></h3>
+            <a href="/tasks/<%= @current_user.name %>/total" class="btn btn-flat"><span><%= @current_user.name %>の統計</span></a>
+        </div>
+        <% #セッションIDランダム＆ハッシュとかする %>
+    </div>
+    <%= javascript_tag do %>
+    var current_user = '<%= @current_user.name %>';
+<% end %>
+
+    <div class="task">
+       <table id="taskList">
+            <tr>
+                <th>お名前</th>
+                <th>タイトル</th>
+                <th>内容</th>
+                <th>時間</th>
+                <th>削除</th>
+            </tr>
+            
+        <% 
+            sum_time = 0 #下の変数で最初に定義しておかないといけない
+            @tasks.each do |task| %>
+            <% #円グラフ作成用に時間ごとのタイトルを配列に入れる 
+                time = task.time.to_f
+                sum_time = time + sum_time
+                @times.push(time)
+                @titles.push(task.title)
+            %>
+            <%= content_tag "tr", id: "task-#{task.id}", class: "item", data: { model_name: task.class.name.underscore, update_url: task_sort_path(task)} do %>
+                <td><%= Date.parse(task.created_at.to_s) %>の<%= task.name %></td>
+                <td><%= task.title %></td>
+                <td><%= task.content %></td>
+                <td><%= task.time %></td>
+                <td><%= link_to '削除', "tasks/#{task.id}/delete",{class: "delete_button"} %></td>
+            <% end %>
+        <% end %>
+        </table>
+            <a href="/<%= @my_url %>" class="btn btn-border"><span><%= @message %></span></a>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+            <%= javascript_include_tag 'task_sort' %>
+    </div>
+    <div class="graph">
+        <canvas id="tasksPieChart"></canvas>
+        <!--円グラフを作ろう！-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+        <% #合計の時間から24時間を引いて円グラフを正しくするため
+            @times.push(24.0-sum_time)
+        %>
+        <script>
+            // ランダムなRGB値を生成する関数
+            function getRandomColor() {
+            var r = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+            return `rgb(${r}, ${g}, ${b})`;
+            }
+            var times = <%= @times %>;
+            var titles = <%= raw @titles.to_json %>;
+            var backgroundColors = ["#BB5179","#FAFF67","#58A27C","#3C00FF" ];
+            while (backgroundColors.length < times.length) {
+                backgroundColors.push(getRandomColor());
+            } 
+            var ctx = document.getElementById("tasksPieChart");
+            var myPieChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                labels: titles,
+                datasets: [{
+                    backgroundColor: backgroundColors,
+
+                    data: times
+                }]
+                },
+                options: {
+                title: {
+                    display: true,
+                    text: 'タスク円グラフ　単位（時間）'
+                }
+                }
+            });
+        </script>
+    </div>
+    <div class="create_task">
+        <h3>todo作成</h3>
+        <%= form_tag('/tasks_create') do %>
+        <table id="create_table">
+            <tr>
+                <th>お名前</th>
+                <th>タイトル</th>
+                <th>内容</th>
+                <th>時間</th>
+                <th>削除</th>
+            </tr>
+            <tr>
+            <td><%= @current_user.name %><input type="hidden" name="name" value="<%= @current_user.name %>"></td>
+            <td><input type="text" name="[title][]" id="title" onkeyup="syntaxCheck('title')"></td>
+            <td><input type="text" name="[content][]" id="content" onkeyup="syntaxCheck('content')"></td>
+            <td><input type="text" name="[time][]" id="time" onkeyup="timeCheck()"></td>
+            <td><a class="delete_button" onclick="DeleteTable()">削除</a></td>
+            </tr>
+        </table>
+        <% if flash[:error].present? %>  
+          <div class="error-message"><%= flash[:error] %></div>
+        <% end %>
+
+            <div id="check"></div>
+            <a class="plus-button" onclick="AddTable()"><span>+</span></a>
+            <input type="submit" value="投稿">
+        <% end %>
+    </div>
+    <div class="other_task">
+        <h3>他の人のタスクを見てみよう</h3>
+        <table>
+            <tr>
+                <th>お名前</th>
+                <th>タイトル</th>
+                <th>内容</th>
+                <th>時間</th>
+            </tr>
+        <% if !@random_tasks.nil? %>
+        <% @random_tasks.each do |task| %>
+            <tr>
+            <td><%= Date.parse(task.created_at.to_s) %>の<a href="/tasks/<%= task.name %>/show" class="deco-a"><%= task.name %></a></td>
+            <td><%= task.title %></td>
+            <td><%= task.content %></td>
+            <td><%= task.time %></td>
+            </tr>
+        <% end %>
+        <% end %>
+        </table>
+        <a href="/<%= @random_url %>" class="btn btn-border"><span><%= @message %></span></a>
+    </div>
+<% else %>
+    <%= link_to "ログインまたは新規登録する",'login_form',method: :get %>
+    <div class="other_task">
+        <h3>他の人のタスクを見てみよう</h3>
+        <table>
+            <tr>
+                <th>お名前</th>
+                <th>タイトル</th>
+                <th>内容</th>
+                <th>時間</th>
+            </tr>
+        <% if !@random_tasks.nil? %>
+        <% @random_tasks.each do |task| %>
+            <tr>
+            <td><%= Date.parse(task.created_at.to_s) %>の<a href="/tasks/<%= task.name %>/show" class="deco-a"><%= task.name %></a></td>
+            <td><%= task.title %></td>
+            <td><%= task.content %></td>
+            <td><%= task.time %></td>
+            </tr>
+        <% end %>
+        <% end %>
+        </table>
+        <a href="/<%= @random_url %>" class="btn btn-border"><span><%= @message %></span></a>
+    </div>
+<% end %>
+</div>
+<script>
+    function timeCheck() {
+        var time = document.getElementById("time").value;
+        if(!(isFinite(time))){
+            document.getElementById("check").innerHTML = '数値を入力してください';
+        }
+        else if(Number(time) > 24){
+            document.getElementById("check").innerHTML = '一日の時間は24(10)時間ですよ。入力は10進数でお願いします。';
+        }
+        else {
+            document.getElementById("check").innerHTML = '';
+        }
+    }
+
+    function containsSpecialCharacters(str) {
+      const specialCharacters = '!@#$%^&*()_+{}[]:;<>,.?~"';
+      return [...str].some(char => specialCharacters.includes(char));
+    }
+
+    function syntaxCheck(id) {
+      var syntax = document.getElementById(id).value;
+      if(containsSpecialCharacters(syntax)) {
+        document.getElementById("check").innerHTML = '特殊文字列を入力しないでください';
+      }
+      else {
+        document.getElementById("check").innerHTML = '';
+      }
+    }
+    
+</script>
