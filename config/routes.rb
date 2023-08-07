@@ -24,12 +24,12 @@ Rails.application.routes.draw do
 
   #taskアプリ
   get 'tasks' => "tasks#index"
-  get 'tasks/:name/show' => "tasks#show"
-  get 'tasks/:name/total' => "tasks#total"
-  post 'tasks_create' => "tasks#create"
-  get 'tasks/:id/delete' => "tasks#delete"
   get 'tasks/user_all_tasks' => "tasks#user_all_tasks"
   get 'tasks/random_all_tasks' => "tasks#random_all_tasks"
+  post 'tasks_create' => "tasks#create"
+  get 'tasks/:name/show' => "tasks#show"
+  get 'tasks/:name/total' => "tasks#total"
+  get 'tasks/:id/delete' => "tasks#delete"
   put 'tasks/:id/sort' => "tasks#sort"
   resources :tasks do 
     put :sort

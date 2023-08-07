@@ -102,12 +102,6 @@ class TasksController < ApplicationController
     # end
   end
 
-  def destroy
-    for i in 56..61
-      task = Task.find_by(id: i)
-      task.destroy
-    end
-  end
 
   def sort
     puts params[:task][:row_order_position]
