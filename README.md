@@ -1,24 +1,8 @@
-# README
+# 勉強時間管理サービス
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+勉強するタイトルと時間を指定したらそれぞれどれだけ勉強したかを記録できます。
 
-Things you may want to cover:
+他の人のタスクも見れてモチベーションアップにもつながります。
 
-* Ruby version
+不具合等がありましたら[yuma4869](https://twitter.com/yuma4869b)まで
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
