@@ -61,7 +61,7 @@ class TasksController < ApplicationController
       @last_created_at = @tasks.order(:created_at).pluck(:created_at).last
       title_times = Hash.new(0)
       @tasks.each do |task|
-        title_times[task.title] += task.time.to_i
+        title_times[task.title] += task.time.to_f
       end
       @titles,@times = title_times.keys,title_times.values
     end
