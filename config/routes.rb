@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'day_of_week/index'
   #ヘッダーやHOMEなど基本
   get "/" => "index#base"
   #get "/" => "index#wait"
@@ -44,6 +45,15 @@ Rails.application.routes.draw do
 
   #ログアウト
   get 'logout' => "sessions#logout"
+
+  #コラッツ予想
+  get 'collatz' => "collatz#index"
+  post 'collatz/number' => "collatz#number"
+  post 'collatz/music' => "collatz#music"
+
+  #曜日計算器
+  get 'day_of_week' => "day_of_week#index"
+  post 'day_of_week/get' => "day_of_week#get"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

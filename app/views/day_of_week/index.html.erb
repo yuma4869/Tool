@@ -1,0 +1,95 @@
+<% provide(:title, '曜日計算器・ツェラーの公式 | yuma4869') 
+   provide(:description,'ツェラーの公式を用いて日付から曜日を計算します')
+   provide(:keywords,'曜日計算,ツェラーの公式,zeller,モジュロ演算,yuma4869')
+   provide(:github,'https://github.com/yuma4869/Tool')
+%>
+<style>
+input[type=text]{
+    height:2em;
+    border-radius:10px;
+}
+select {
+    height:2em;
+    width:4em;
+    text-align:left;
+}
+</style>
+<div class="container">
+<div class="explain">
+<h1>曜日計算器・ツェラーの公式 | yuma4869</h1>
+
+<div class="get">
+    <%= form_tag("/day_of_week/get",method: :post) do %>
+    西暦：<input type="text" name="year" id="year" class="day" onkeyup="checkYear()">
+    月：<select name="month" id="">
+        <% for i in 1..12 do %>
+            <option value="<%= i %>"><%= i %></option>
+        <% end %>
+    </select>
+    日：<select name="day" id="">
+        <% for i in 1..31 do %>
+            <option value="<%= i %>"><%= i %></option>
+        <% end %>
+    </select>
+    <input type="submit" value="送信">
+    <% end %>
+</div>
+
+<div id="check">
+</div>
+
+<% if !@day_of_week.nil? %>
+<% @display_month = @month != 12 ? @month % 12 : @month %>
+<% @display_year = @month > 12 ? @year + 1 : @year %>
+<p><%=@display_year%>年の<%=@display_month%>月<%=@day%>日は<%= @day_of_week %>です</p>
+<p>式：(<%=@year%> + <%=@year%> / 4 - <%=@year%> / 100 + <%=@year%> / 400 + (13 * <%=@month%> + 8) / 5 + <%=@day%>) % 7</p>
+<% end %>
+
+<div class="subtitle" style="margin-top:3em">
+<h2>ツェラーの公式</h2>
+<p>ツェラーの公式には</p>
+<%= image_tag 'zeller2.png',alt: 'zeller',class: 'zeller' %>
+<p>こんなのや</p>
+<%= image_tag 'zeller3.png',alt: 'zeller',class: 'zeller' %>
+<p>こんなのが紹介されていることが多いが、式を変形しただけのようなもので本質的には同じである</p>
+<p>今回はプログラム上で都合のいいこのような変形した式を使用する</p>
+<%= image_tag 'zeller1.png',alt: 'zeller',class: 'zeller' %>
+<p>これをrubyなどで表すと</p>
+<p>(y + y / 4 - y / 100 + y / 400 + (13 * m + 8) / 5 + d) % 7</p>
+<p>となる</p>
+</div>
+
+<div class="subtitle" style="margin-top:3em">
+<h2>各プログラミング言語で再現</h2>
+<a href="https://github.com/yuma4869/zeller" class="deco-a">https://github.com/yuma4869/zeller</a>
+</div>
+
+</div>
+</div>
+<script>
+    var check = document.getElementById("check");
+    var year = document.getElementById("year");
+        function checkYear(){
+            if(year_number(year.value)){
+                check.innerText = "";
+            }else{
+                check.innerText = "";
+                check.innerText += "1583年以降の西暦を半角数字で入力してください";
+            }
+        }
+
+        function year_number(year){
+            if(year == ""){
+                return true;
+            }
+            if(year.match(/^[0-9]*$/)){
+                if(year.length < 4){
+                    return false;
+                }else{
+                    return true;
+                }
+            }else {
+                return false;
+            }
+        }
+</script>
