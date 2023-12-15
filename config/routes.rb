@@ -57,7 +57,8 @@ Rails.application.routes.draw do
 
 
   #seeniumテスト
-  get "selenium/:url" => "day_of_week#selenium_test"
+  get "selenium" => "day_of_week#selenium"
+  post "selenium/url" => "day_of_week#selenium_url"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -24,7 +24,10 @@ class DayOfWeekController < ApplicationController
     render("day_of_week/index")
   end
 
-  def selenium_test
+  def selenium
+  end
+
+  def selenium_url
     options = Selenium::WebDriver::Chrome::Options.new
     puts 1
     options.add_argument('--headless')
