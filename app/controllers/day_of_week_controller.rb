@@ -30,6 +30,8 @@ class DayOfWeekController < ApplicationController
     options.add_argument('--headless')
     puts 2
     puts 3
+    Selenium::WebDriver::Chrome::Service.driver_path = '/usr/local/bin/chromedriver'
+
     @@driver = Selenium::WebDriver.for :chrome , options: options
     puts 4
     @wait = Selenium::WebDriver::Wait.new(:timeout => 100)
