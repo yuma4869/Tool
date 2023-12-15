@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.2"
 
-gem "selenium-webdriver","~> 4.10"
+gem "selenium-webdriver"
 
 gem "bcrypt","~>3.1.7" #ログインのパスワードハッシュ用
 

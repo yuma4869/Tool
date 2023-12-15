@@ -23,11 +23,8 @@ class DayOfWeekController < ApplicationController
 
     render("day_of_week/index")
   end
-
-  def selenium
-  end
-
-  def selenium_url
+  
+  def screen_shot
     options = Selenium::WebDriver::Chrome::Options.new
     puts 1
     options.add_argument('--headless')
@@ -43,4 +40,8 @@ class DayOfWeekController < ApplicationController
     @@driver.save_screenshot("public/images/screen.png")
     render("day_of_week/selenium")
   end
+
+  def selenium
+  end
+
 end
