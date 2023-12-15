@@ -55,6 +55,10 @@ Rails.application.routes.draw do
   get 'day_of_week' => "day_of_week#index"
   post 'day_of_week/get' => "day_of_week#get"
 
+
+  #seeniumテスト
+  get "selenium/:url" => "day_of_week#selenium_test"
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

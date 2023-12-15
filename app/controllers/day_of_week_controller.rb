@@ -23,4 +23,21 @@ class DayOfWeekController < ApplicationController
 
     render("day_of_week/index")
   end
+
+  def selenium_test
+    options = Selenium::WebDriver::Chrome::Options.new
+    puts 1
+    options.add_argument('--headless')
+    puts 2
+    puts 3
+    @@driver = Selenium::WebDriver.for :chrome , options: options
+    puts 4
+    @wait = Selenium::WebDriver::Wait.new(:timeout => 100)
+    puts 5
+    url = params[:url]
+    @@driver.get(url)
+    sleep 1
+    @@driver.save_screenshot("public/images/screen.png")
+    render("day_of_week/selenium")
+  end
 end
