@@ -52,7 +52,13 @@ body {
 @media (max-width:800px) {
     .tools {padding-top:60px;}
 }
+.explain_mascot > p, .explain_mascot > h3{
+    text-align:center;
+    margin-top: 3em;
+}
 </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
 <div class="container">
 <div class="explain">
     <h1>tools | yuma4869</h1>
@@ -88,5 +94,141 @@ body {
             <h3 class="heading">フィルタリング抜けサイト</h3>
             <h4 class="summary"><span class="red">OSコマンドインジェクションや不正なサイトへのアクセスが懸念されるため削除</span></h4>
         </div> %>
+    </div>
+    <div id="mascot">
+        <div class="explain_mascot">
+            <h3>こいつは、開発者のPCでの左右クリック数や、キーボード入力によって色が変わるマスコット（kawaii）</h3>
+            <p>うでがめっちゃ伸びてる日は頑張ってるんだなーと思ってください</p>
+        </div>
+
+        <canvas id="canvas"></canvas>
+        <script>
+            
+        var left_click = '<%= $left_click %>',right_click = '<%= $right_click %>',left_key = '<%= $left_key %>',right_key = '<%= $right_key %>',others = '<%= $others %>';
+        
+        let scene, camera, renderer, mascot;
+        let mouseX = 0, mouseY = 0;
+        let color;
+
+        setColor(parseFloat(left_key),parseFloat(right_key));
+
+        function setColor(left,right){            
+            let left_color = left <= 4095 ? (('000' + left.toString(16)).substr(-3)) : "FFB";
+            
+            let right_color = right <= 4095 ? (('000' + right.toString(16)).substr(-3)) : "3BA";
+
+            color = "0x" + left_color + right_color;            
+        }
+
+
+        function init() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({
+                canvas: document.querySelector('#canvas'),
+                alpha: true,
+                antialias: true
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+
+            mascot = new THREE.Group();
+
+            // 体
+            const bodyGeometry = new THREE.SphereGeometry(parseFloat(others)/10 < 1 ? parseFloat(others)/10 : 1, 32, 32);
+            const body_color = new THREE.Color(parseInt(color,16));
+            const bodyMaterial = new THREE.MeshPhongMaterial({ color: body_color });
+            const body = new THREE.Mesh(bodyGeometry, bodyMaterial);
+            mascot.add(body);
+
+            // 目
+            const eyeGeometry = new THREE.SphereGeometry(0.15, 32, 32);
+            const eyeMaterial = new THREE.MeshPhongMaterial({ color: 0xFFFFFF });
+            const leftEye = new THREE.Mesh(eyeGeometry, eyeMaterial);
+            leftEye.position.set(-0.4, 0.5, 0.8);
+            const rightEye = leftEye.clone();
+            rightEye.position.set(0.4, 0.5, 0.8);
+            mascot.add(leftEye, rightEye);
+
+            // 瞳
+            const pupilGeometry = new THREE.SphereGeometry(0.07, 32, 32);
+            const pupilMaterial = new THREE.MeshPhongMaterial({ color: 0x000000 });
+            const leftPupil = new THREE.Mesh(pupilGeometry, pupilMaterial);
+            leftPupil.position.set(-0.4, 0.5, 0.9);
+            const rightPupil = leftPupil.clone();
+            rightPupil.position.set(0.4, 0.5, 0.9);
+            mascot.add(leftPupil, rightPupil);
+
+            // 左手                                                 parseFloat(left_click)/1500
+            const leftHandGeometry = new THREE.SphereGeometry(0.5, 4, 20);
+            const leftHandMaterial = new THREE.MeshPhongMaterial({ color: body_color });
+            const leftHand = new THREE.Mesh(leftHandGeometry, leftHandMaterial);
+            leftHand.position.set(-1.2, -0.2, 0);
+            leftHand.rotation.z = Math.PI/2;
+            // 右手
+            const rightHandGeometry = new THREE.SphereGeometry(parseFloat(right_click)/100, 4, 20);
+            const rightHandMaterial = new THREE.MeshPhongMaterial({ color: body_color });
+            const rightHand = new THREE.Mesh(rightHandGeometry, rightHandMaterial);
+            rightHand.position.set(1.2, -0.2, 0);
+            rightHand.rotation.z = Math.PI/2;
+
+
+            mascot.add(leftHand, rightHand);
+
+            // 足
+            const footGeometry = new THREE.SphereGeometry(0.25, 32, 32);
+            const footMaterial = new THREE.MeshPhongMaterial({ color: body_color });
+            const leftFoot = new THREE.Mesh(footGeometry, footMaterial);
+            leftFoot.position.set(-0.5, -1.2, 0);
+            const rightFoot = leftFoot.clone();
+            rightFoot.position.set(0.5, -1.2, 0);
+            mascot.add(leftFoot, rightFoot);
+
+            scene.add(mascot);
+
+            const light = new THREE.PointLight(0xFFFFFF, 1, 100);
+            light.position.set(10, 10, 10);
+            scene.add(light);
+
+            camera.position.z = 5;
+
+            document.addEventListener('mousemove', onDocumentMouseMove, false);
+            window.addEventListener('resize', onWindowResize, false);
+            
+        }
+
+        function onDocumentMouseMove(event) {
+            mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // ぷるぷる効果
+            mascot.scale.x = 1 + Math.sin(Date.now() * 0.01) * 0.05;
+            mascot.scale.y = 1 + Math.sin(Date.now() * 0.01 + 2) * 0.05;
+            mascot.scale.z = 1 + Math.sin(Date.now() * 0.01 + 4) * 0.05;
+
+            // マウス位置に応じて変形
+            mascot.position.x = mouseX * 2;
+            mascot.position.y = mouseY * 2;
+
+            // マスコットをマウスの方向に向ける
+            mascot.lookAt(mouseX * 5, mouseY * 5, 5);
+
+            renderer.render(scene, camera);
+        }
+    
+            setColor(left_key,right_key);
+            init();
+            animate();
+        </script>
     </div>
 </div>
