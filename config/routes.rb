@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'day_of_week/index'
   #ヘッダーやHOMEなど基本
   get "/" => "index#base"
+  post "/mascot" => "index#mascot"
   #get "/" => "index#wait"
   get "about" => "index#about"
   get "me" => "index#me"
