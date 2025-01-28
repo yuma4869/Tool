@@ -1,97 +1,403 @@
 <% provide(:title, 'yuma4869について | yuma4869')
 provide(:github,'https://github.com/yuma4869/Tool') %>
-<style>
-.deco {
-	color:#4f6cef;
-	text-decoration: underline;
-}
-.container {
-    text-align:center;
-}
-.history {
-    margin:2em;
-    border-top:10px solid rgba(255,255,255,0.6);
-}
-.account {
-    margin:2em;
-    border-top:10px solid rgba(255,255,255,0.6);
-}
-.skil {
-    margin:2em;
-    border-top:10px solid rgba(255,255,255,0.6);
-}
-.content {
-    display:flex;
-    line-height:2em;
-}
-.item {
-  margin: 1rem;
-  width: auto;/*10rem*/
-  background-color: #FFC679;
-  transition: all 2s ease;
-  padding:15px;
-  font-size:2rem;
-  border: 7px solid #F99292
-}
-#hover {
-  display: none;
-  font-size:0.5em;
-  border-top:1px dotted #515151;
-}
-.now {
-  border-top:1px dotted #515151;
-}
-.day {
-  
-  font-weight: bolder;
-}
-.item:hover #hover {
-  display: block;
-}
-.item:hover {
-  background-color: #FFF4E0;
-}
-</style>
 
-<div class="container">
-    <div class="history">
-        <h1>my history</h1>
-        <div class="wrap">
-            <div class="item">生～小学生
-                <div id="hover">
-                    <p class="content">普通の元気なクソガキ人生を送る</p>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: #1a1b2e;
+            overflow-x: hidden;
+        }
+
+        .geometric-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .geometric-shape {
+            position: absolute;
+            border: 2px solid rgba(255, 116, 177, 0.2);
+            animation: float 20s infinite linear;
+        }
+
+        .shape1 {
+            width: 100px;
+            height: 100px;
+            transform: rotate(45deg);
+            top: 10%;
+            left: 10%;
+            border-color: rgba(255, 116, 177, 0.2);
+        }
+
+        .shape2 {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            top: 40%;
+            right: 15%;
+            border-color: rgba(116, 255, 236, 0.2);
+        }
+
+        .shape3 {
+            width: 80px;
+            height: 80px;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            bottom: 20%;
+            left: 20%;
+            border-color: rgba(255, 214, 116, 0.2);
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(30px, 30px) rotate(180deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+
+        .intro-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #1a1b2e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            animation: fadeOut 1s ease 4s forwards;
+        }
+
+        .intro-text {
+            font-size: 5rem;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1rem;
+            position: relative;
+            animation: glitch 3s linear;
+            background: linear-gradient(45deg, #ff74b1, #74ffec);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        .main-content {
+            opacity: 0;
+            animation: fadeIn 1s ease 4.5s forwards;
+        }
+
+        .section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #1a1b2e, #2a2b4e);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-container {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 3px solid #ff74b1;
+            box-shadow: 0 0 30px rgba(255, 116, 177, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .name-title h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff74b1, #74ffec);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .name-title p {
+            font-size: 1.2rem;
+            color: #74ffec;
+        }
+
+        .skills {
+            padding: 6rem 2rem;
+            background: rgba(26, 27, 46, 0.8);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #ff74b1, #74ffec);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 116, 177, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            border-color: #ff74b1;
+            box-shadow: 0 10px 30px rgba(255, 116, 177, 0.2);
+        }
+
+        .projects {
+            padding: 6rem 2rem;
+            background: rgba(26, 27, 46, 0.9);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            position: relative;
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(26, 27, 46, 0.9));
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            transform: translateY(0);
+        }
+
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .timeline {
+            padding: 6rem 2rem;
+            background: rgba(26, 27, 46, 0.8);
+        }
+
+        .timeline-item {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border-left: 4px solid #ff74b1;
+            backdrop-filter: blur(10px);
+        }
+
+        .timeline-item h3 {
+            color: #74ffec;
+            margin-bottom: 1rem;
+        }
+
+        .contact {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: rgba(26, 27, 46, 0.9);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            border: 2px solid #ff74b1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff74b1;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+        }
+
+        .social-link:hover {
+            background: #ff74b1;
+            color: #1a1b2e;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(255, 116, 177, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .intro-text {
+                font-size: 3rem;
+            }
+            
+            .name-title h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/8e76d96855.js" crossorigin="anonymous"></script>
+    <div class="geometric-bg">
+        <div class="geometric-shape shape1"></div>
+        <div class="geometric-shape shape2"></div>
+        <div class="geometric-shape shape3"></div>
+    </div>
+
+    <div class="intro-animation">
+        <div class="intro-text">YUMA 4869</div>
+    </div>
+
+    <div class="main-content">
+        <section class="hero section">
+            <div class="profile-container">
+                <%= image_tag '4869_favicon.png',alt: 'yuma4869_favicon',class: 'profile-img' %>
+                <div class="name-title">
+                    <h1>yuma4869</h1>
+                    <p>2009/07/06 RISS / Kosenseee</p>
                 </div>
             </div>
-            <div class="item">中１
-                <div id="hover">
-                    <p class="content"><span class="day">９月</span>プログラミングに出会う。Cを始める</p>
-                    <p class="content"><span class="day">12月</span>ドメイン取得<a class="deco" href="https://yumasblog.net">yumasblog.net</a></p>
+        </section>
+
+        <section class="skills section">
+            <h2 class="section-title">SKILLS</h2>
+            <div class="skill-grid">
+                <div class="skill-card">
+                    <h3>PROGRAMMING</h3>
+                    <p>Ruby / Three.js / Python</p>
+                    <p>C / Selenium</p>
                 </div>
-            </div>
-            <div class="item">中２
-                <div id="hover">
-                    <p class="content"><span class="day">４月</span>twitterをはじめ、すごい人たちを見る</p>
-                    <p class="content"><span class="day">４月</span>本格的に記事を作り始める</p>
-                    <p class="content"><span class="day">６月</span>webツールを作り始める</p>
-                    <p class="content"><span class="day">６月</span>応用情報技術者試験に合格する</p>
-                    <p class="content now"><span class="day">今ここ</span>yuma4869.com開設</p>
+                <div class="skill-card">
+                    <h3>CTF</h3>
+                    <p>Zako</p>
+                    <p>Ganbatteru</p>
                 </div>
+
             </div>
-        </div>
+        </section>
+
+        <section class="timeline section">
+            <h2 class="section-title">TimeLine</h2>
+            <div class="timeline-item">
+                <h3>Born</h3>
+                <p>2009 - ?</p>
+            </div>
+            <div class="timeline-item">
+                <h3>応用情報技術者・情報処理安全確保支援士</h3>
+                <p>2023 - 2024</p>
+            </div>
+            <div class="timeline-item">
+                <h3>CODE BLUE</h3>
+                <p>2024</p>
+            </div>
+        </section>
+
+        <section class="contact section">
+            <h2 class="section-title">CONNECT</h2>
+            <div class="social-links">
+                <a href="https://x.com/yuma4869b" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://github.com/yuma4869" class="social-link"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.youtube.com/channel/UCGMpykl4sEV35eGXeT8dU9w" class="social-link"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </section>
     </div>
-    <div class="skil">
-        <h1>できること</h1>
-        <p>web開発(rails php)</p>
-        <p>サイト作り(html css js)</p>
-        <p>C言語</p>
-        <p>言われればなんでも</p>
-    </div>
-    <div class="account">
-        <h1>アカウント</h1>
-        <div class="show">
-            <h3>twitter<a class="deco-a" href="https://twitter.com/yuma4869b">@yuma4869b</a></h3>
-            <h3>mail<a class="deco-a" href="mailto:webmaster@yuma4869.com">webmaster@yuma4869.com</a></h3>
-            <h3>onionmail<a class="deco-a" href="mailto:yuma4869@onionmail.org">yuma4869@onionmail.org</a>（つい最近仕様変更で送信できなくなった）</h3>
-        </div>
-    </div>
-</div>
+
+    <script>
+        // Scroll animation
+        const sections = document.querySelectorAll('.section');
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
