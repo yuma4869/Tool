@@ -11,12 +11,12 @@ gem 'twitter',"6.2.0" #デプロイ成功しないから適当にバージョン
 
 #tasksのドラック＆ドロップ
 gem 'jquery-ui-rails'
-gem 'ranked-model'
+gem 'ranked-model', '>= 0.4.9'
 
 gem 'jquery-rails'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.5"
+gem "rails", "~> 7.1.5", ">= 7.1.5.2"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
