@@ -1,6 +1,6 @@
 # Use this Dockerfile to create minimal reproductions of issues
 
-FROM ruby:3.1
+FROM ruby:3.4.7
 
 # throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config --global frozen 1
