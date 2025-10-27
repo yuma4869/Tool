@@ -13,7 +13,7 @@ gem 'twitter',"6.2.0" #デプロイ成功しないから適当にバージョン
 gem 'jquery-ui-rails'
 gem 'ranked-model'
 
-gem 'jquery-rails'
+gem 'jquery-rails', '>= 4.6.1'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.5"
